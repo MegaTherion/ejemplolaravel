@@ -6,6 +6,10 @@ use Illuminate\Support\Facades\Schema;
 
 class CreatePacientesTable extends Migration
 {
+    // Este archivo ha sido generado con el comando: php artisan make:model -m Paciente
+
+    // La migración es ejecutada con el comando: php artisan migrate
+    
     /**
      * Run the migrations.
      *
@@ -16,7 +20,8 @@ class CreatePacientesTable extends Migration
         Schema::create('pacientes', function (Blueprint $table) {
             $table->id();
             $table->string('nombre', 120);
-            $table->integer('ci');
+            $table->string('ci', 12);
+            $table->integer('whatsapp');
             $table->date('fecha_nac');
             $table->timestamps();
         });

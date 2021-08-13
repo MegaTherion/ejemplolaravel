@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\PrincipalController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,11 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/bienvenido/{nombre}', [PrincipalController::class, 'bienvenido']);
+// Route::get('/paciente/crearregistro', [PacienteController::class, 'crearRegistro']);
+
+// ----------- RUTAS PARA CONTROLADOR DE PACIENTES
+Route::get('/pacientes/create', [PacienteController::class, 'create'])->name('pacientes.create');
+Route::post('/pacientes', [PacienteController::class, 'store'])->name('pacientes.store');
 
 // --------------------------------
 // function factorial($n) {
