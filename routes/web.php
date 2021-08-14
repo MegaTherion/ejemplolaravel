@@ -27,8 +27,19 @@ Route::get('/bienvenido/{nombre}', [PrincipalController::class, 'bienvenido']);
 // Route::get('/paciente/crearregistro', [PacienteController::class, 'crearRegistro']);
 
 // ----------- RUTAS PARA CONTROLADOR DE PACIENTES
+
+// Ruta para  mostrar formulario de creacion de paciente
 Route::get('/pacientes/create', [PacienteController::class, 'create'])->name('pacientes.create');
+
+// Ruta para guardar datos de paciente en la DB
 Route::post('/pacientes', [PacienteController::class, 'store'])->name('pacientes.store');
+
+// Ruta para listar todos los pacientes
+Route::get('/pacientes', [PacienteController::class, 'index'])->name('pacientes.index');
+
+
+
+
 
 // --------------------------------
 // function factorial($n) {

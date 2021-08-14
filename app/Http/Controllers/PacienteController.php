@@ -9,6 +9,12 @@ class PacienteController extends Controller
 {
     // Este archivo ha sido generado con el comando: php artisan make:controller PacienteController
 
+    public function index()
+    {
+        $pacientes = Paciente::all();
+        return view('pacientes/index', compact('pacientes'));
+    }
+
     public function crearRegistro()
     {
         // Crear objeto de tipo Paciente
@@ -34,6 +40,10 @@ class PacienteController extends Controller
     public function store(Request $request)
     {
         Paciente::create($request->all());
-        return response('El paciente ha sido creado');
+
+        // Redireccionar a la ruta que muestra todos los pacientes
+        return redirect()->route('pacientes.index');
+
+        // return response('El paciente ha sido creado');
     }
 }
