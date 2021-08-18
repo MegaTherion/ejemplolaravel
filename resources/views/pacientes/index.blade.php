@@ -17,6 +17,7 @@
                 <th>Whatsapp</th>
                 <th>Fecha de nacimiento</th>
                 <th>Fecha de creación</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -32,11 +33,16 @@
                     </a>
                 </td>
                 <td>{{ $paciente->fecha_nac }}</td>
-                <td>{{ $paciente->created_at }}</td>                
+                <td>{{ $paciente->created_at }}</td>
+                <td>
+                    <a href="{{ route('pacientes.show', $paciente->id) }}">Ver detalles</a>
+                    <a href="{{ route('pacientes.edit', $paciente->id) }}">Editar</a>
+                </td>
             </tr>
             @endforeach
 
         </tbody>
     </table>
+    <a href="{{ route('pacientes.create') }}">Registrar paciente</a>
 </body>
 </html>

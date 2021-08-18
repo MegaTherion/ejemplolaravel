@@ -15,6 +15,12 @@ class PacienteController extends Controller
         return view('pacientes/index', compact('pacientes'));
     }
 
+    public function show($id)
+    {
+        $paciente = Paciente::findOrFail($id);
+        return view('pacientes/show', compact('paciente'));
+    }
+
     public function crearRegistro()
     {
         // Crear objeto de tipo Paciente
@@ -45,5 +51,18 @@ class PacienteController extends Controller
         return redirect()->route('pacientes.index');
 
         // return response('El paciente ha sido creado');
+    }
+
+    public function edit($id)
+    {
+        $paciente = Paciente::findOrFail($id);
+        return view('pacientes/edit', compact('paciente'));
+    }
+
+    public function update($id, Request $request)
+    {
+        $paciente = Paciente::findOrFail($id);
+        $paciente->update($request->all());
+        return redirect()->route('pacientes.index');
     }
 }
