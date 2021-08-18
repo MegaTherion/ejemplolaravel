@@ -37,6 +37,12 @@
                 <td>
                     <a href="{{ route('pacientes.show', $paciente->id) }}">Ver detalles</a>
                     <a href="{{ route('pacientes.edit', $paciente->id) }}">Editar</a>
+                    <form onsubmit="return confirmarBorrado()" class="form-borrar" action="{{ route('pacientes.destroy', $paciente->id) }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit">Eliminar</button>
+                    </form>
+                    
                 </td>
             </tr>
             @endforeach
@@ -44,5 +50,20 @@
         </tbody>
     </table>
     <a href="{{ route('pacientes.create') }}">Registrar paciente</a>
+    <script>
+// Aquí viene el código Javascript
+// elems = document.getElementsByTagName("form");
+// console.log(elems);
+
+function confirmarBorrado() {
+    var confirmacion = confirm("Está seguro de borrar este registro?");
+    if (confirmacion) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+    </script>
 </body>
 </html>

@@ -21,22 +21,22 @@ class PacienteController extends Controller
         return view('pacientes/show', compact('paciente'));
     }
 
-    public function crearRegistro()
-    {
-        // Crear objeto de tipo Paciente
-        $paciente = new Paciente();
+    // public function crearRegistro()
+    // {
+    //     // Crear objeto de tipo Paciente
+    //     $paciente = new Paciente();
         
-        // Asignar datos
-        $paciente->nombre = "Maria Isnado";
-        $paciente->ci = "7437828-A";
-        $paciente->whatsapp = 70546221;
-        $paciente->fecha_nac = "1996-06-06";
+    //     // Asignar datos
+    //     $paciente->nombre = "Maria Isnado";
+    //     $paciente->ci = "7437828-A";
+    //     $paciente->whatsapp = 70546221;
+    //     $paciente->fecha_nac = "1996-06-06";
 
-        // Guardar el objeto (se guarda en la DB)
-        $paciente->save();
+    //     // Guardar el objeto (se guarda en la DB)
+    //     $paciente->save();
 
-        return response('El registro ha sido creado'); 
-    }
+    //     return response('El registro ha sido creado'); 
+    // }
 
     public function create()
     {
@@ -63,6 +63,13 @@ class PacienteController extends Controller
     {
         $paciente = Paciente::findOrFail($id);
         $paciente->update($request->all());
+        return redirect()->route('pacientes.index');
+    }
+
+    public function destroy($id)
+    {
+        $paciente = Paciente::findOrFail($id);
+        $paciente->delete();
         return redirect()->route('pacientes.index');
     }
 }

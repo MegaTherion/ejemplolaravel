@@ -46,6 +46,8 @@ Route::get('/pacientes/{id}/edit', [PacienteController::class, 'edit'])->name('p
 // Ruta para guardar los cambios de un registro de paciente en la DB
 Route::put('/pacientes/{id}', [PacienteController::class, 'update'])->name('pacientes.update');
 
+// Ruta para eliminar de la DB un registro de paciente
+Route::delete('/pacientes/{id}', [PacienteController::class, 'destroy'])->name('pacientes.destroy');
 
 // --------------------------------
 // function factorial($n) {
