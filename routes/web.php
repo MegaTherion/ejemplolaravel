@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ConsultaController;
 use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\PrincipalController;
 use Illuminate\Support\Facades\Route;
@@ -48,6 +49,10 @@ Route::put('/pacientes/{id}', [PacienteController::class, 'update'])->name('paci
 
 // Ruta para eliminar de la DB un registro de paciente
 Route::delete('/pacientes/{id}', [PacienteController::class, 'destroy'])->name('pacientes.destroy');
+
+// ---------------- RUTAS PARA CONTROLADOR DE CONSULTAS
+Route::resource('consultas', ConsultaController::class);
+
 
 // --------------------------------
 // function factorial($n) {
