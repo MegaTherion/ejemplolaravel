@@ -14,6 +14,14 @@
             <td>{{ $consulta->id }}</td>
         </tr>
         <tr>
+            <th>Paciente</th>
+            <td>{{ $consulta->paciente->nombre }}</td>
+        </tr>
+        <tr>
+            <th>Edad</th>
+            <td>{{ $consulta->paciente->edad }}</td>
+        </tr>
+        <tr>
             <th>Diagnóstico</th>
             <td>{{ $consulta->diagnostico }}</td>
         </tr>

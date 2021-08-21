@@ -7,6 +7,14 @@
     <title>Lista de pacientes</title>
 </head>
 <body>
+    <div>
+        Menu: 
+        <ul>
+            <li><a href="{{ route('pacientes.index') }}">Pacientes</a></li>
+            <li><a href="{{ route('consultas.index') }}">Consultas</a></li>
+        </ul>
+    </div>
+
     <h1>Lista de pacientes</h1>
     <table>
         <thead>

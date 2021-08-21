@@ -38,6 +38,30 @@
             <td>{{ $paciente->created_at }}</td>
         </tr>
     </table>
+
+    <h3>Historial de consultas</h3>
+
+    @forelse ($paciente->consultas as $consulta)
+        <table>
+            <tr>
+                <th>Fecha</th>
+                <td>{{ $consulta->created_at->format('d/m/Y H:i') }}</td>
+            </tr>
+            <tr>
+                <th>Diagnóstico</th>
+                <td>{{ $consulta->diagnostico }}</td>
+            </tr>
+            <tr>
+                <th>Receta</th>
+                <td>{{ $consulta->receta }}</td>
+            </tr>
+        </table>
+    @empty
+        <p>No se encontró ninguna consulta registrada.</p>
+    @endforelse
+    
+    
+
     <a href="{{ route('pacientes.index') }}">Volver</a>
 </body>
 </html>

@@ -7,6 +7,15 @@
     <title>Lista de pacientes</title>
 </head>
 <body>
+    <div>
+        Menu: 
+        <ul>
+            <li><a href="{{ route('pacientes.index') }}">Pacientes</a></li>
+            <li><a href="{{ route('consultas.index') }}">Consultas</a></li>
+        </ul>
+    </div>
+
+    
     <h1>Lista de consultas</h1>
     <table>
         <thead>
@@ -41,7 +50,7 @@
 
         </tbody>
     </table>
-    <a href="{{ route('pacientes.create') }}">Registrar paciente</a>
+    <a href="{{ route('consultas.create') }}">Registrar consulta</a>
     <script>
 // Aquí viene el código Javascript
 // elems = document.getElementsByTagName("form");

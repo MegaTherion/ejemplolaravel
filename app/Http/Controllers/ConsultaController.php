@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Consulta;
+use App\Models\Paciente;
 use Illuminate\Http\Request;
 
 class ConsultaController extends Controller
@@ -16,7 +17,7 @@ class ConsultaController extends Controller
     {
         
         $consultas = Consulta::all();
-        dd($consultas);
+        // dd($consultas);
         return view('consultas/index', compact('consultas'));
     }
 
@@ -27,7 +28,8 @@ class ConsultaController extends Controller
      */
     public function create()
     {
-        return view('consultas/create');
+        $pacientes = Paciente::all();
+        return view('consultas/create', compact('pacientes'));
     }
 
     /**

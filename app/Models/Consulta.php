@@ -10,4 +10,10 @@ class Consulta extends Model
 {
     use HasFactory;
     use SoftDeletes;
+
+    protected $fillable = ['diagnostico', 'receta', 'paciente_id'];
+
+    public function paciente() {
+        return $this->belongsTo(Paciente::class);
+    }
 }

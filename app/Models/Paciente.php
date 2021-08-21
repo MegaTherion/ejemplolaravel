@@ -14,6 +14,11 @@ class Paciente extends Model
 
     protected $fillable = ['nombre', 'ci', 'whatsapp', 'fecha_nac'];
 
+
+    public function consultas() {
+        return $this->hasMany(Consulta::class);
+    }
+
     // $paciente->edad  <---- quiero que me muestre la edad
 
     public function getEdadAttribute()
